@@ -13,3 +13,5 @@ In order to provide bias analysis, or subjectivity analysis, as well as sentimen
 1. Download EB-app
 2. Install requirements.txt
 3. Run application.py
+
+Post-processed data is stored on s3 <a href="https://s3.us-east-2.amazonaws.com/ian-bury-springboard/">here</a>.
