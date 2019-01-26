@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Paste in article content:</h1>
+    <form action="" method="post" novalidate style-"width: 40em;">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.query.label }}<br>
+            {{ form.query() }}
+        </p>
+        <input type=submit value="Submit">
+    </form>
+{% endblock %}
+

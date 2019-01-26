@@ -1,0 +1,27 @@
+<html>
+<head>
+
+</head>
+<body>
+<!--{% extends "base.html" %}
+{% block content %} -->
+<p><h2>About this article</h2></p>
+
+<b>Subjectivity:</b> {{ subjectivity }}
+<!--<div ><img style="width:50%;"src="/plot_subj.png" alt="my plot"></div>-->
+<div ><img style="width:50%;"src="data:image/png;base64,{{ subj }}" alt="my plot"></div>
+
+<b>Sentiment: </b>{{ sentiment_score }} 
+<div ><img style="width:50%;"src="data:image/png;base64,{{ sent }}" alt="my plot"></div><div></div>
+<!--<div ><img style="width:50%;"src="/plot_sent.png" alt="my plot"></div>-->
+<div><img style="width:50%;"src="data:image/png;base64,{{ scatter }}" alt="my plot"></div>
+<hr>
+   Topic id: {{topic_id}}
+   <p><b>Related articles from more objective sources</b></p>
+   {% for article in articles %}
+        <div><p><a href="{{article.url}}">{{ article.title }}</a>
+        	<br>Sentiment Score: {{article.comp}}, Subjectivity Score: {{article.subjectivity_content}}
+        </p></div>
+        {% endfor %}
+<!--{% endblock %}-->
+</body></html>
