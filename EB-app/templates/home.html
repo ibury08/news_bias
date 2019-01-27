@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Paste in article content:</h1>
+    <div><h1>What's the spin?</h1></div>
+    <div><p>The core motivation for this project is to address the increasing divergence in presentation of the same events and issues in the media. Empirically, we see a large spectrum of “spin” applied to news articles, which varies from slight bias in word choice to completely misrepresenting facts, depending on the news outlet and topic. Even if the average individual gathers their news from multiple sources, it can be challenging to discern which, if any, source is representing it accurately. In cases where individuals draw from only one source, it’s critical to understand its biases. Using Natural Language Processing, this tool provides a numerical assessment of both bias (subjectivity) and sentiment for the submitted article, as well as compares it to articles on similar topics from other major news sources. Finally, the tool suggests articles in the same thematic topic calculated to be less subjective.
+    	 </p></div>
+    	 <div>
+    <div><p><i>Instructions: Copy and paste the text of a news article in the box below, then click Submit.</i></p>
     <form action="" method="post" novalidate style-"width: 40em;">
         {{ form.hidden_tag() }}
         <p>
@@ -8,6 +12,6 @@
             {{ form.query() }}
         </p>
         <input type=submit value="Submit">
-    </form>
+    </form></div>
 {% endblock %}
 

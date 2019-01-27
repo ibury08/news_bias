@@ -197,9 +197,13 @@ def create_figure2(value):
 def scatter(tid,x,y):
     data_plot = data[data.topic_id==tid].groupby('publication')[['comp','subjectivity_content']].median().reset_index().append(pd.DataFrame({'publication':'Your Article','comp':[y],
              'subjectivity_content':[x]}))
+
+    markers = {}
+    for n,a in enumerate(data_plot.publication.values):
+        markers[a] = "." if n<10 else "*"
     fig=plt.figure(figsize=(6,4))
     sns.set_palette('deep',n_colors=16)
-    _=sns.scatterplot(data=data_plot,x='subjectivity_content',y='comp', hue='publication',palette='deep', legend='full', s=100)
+    _=sns.scatterplot(data=data_plot,x='subjectivity_content',y='comp', hue='publication',palette='deep', legend='full', s=200, style='publication',markers=markers)
     ax=plt.gca()
     text=ax.annotate('Your Article',(x,y))
     lgd=ax.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)

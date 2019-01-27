@@ -1,27 +1,23 @@
-<html>
-<head>
 
-</head>
-<body>
-<!--{% extends "base.html" %}
-{% block content %} -->
-<p><h2>About this article</h2></p>
-
-<b>Subjectivity:</b> {{ subjectivity }}
+{% extends "base.html" %}
+{% block content %}
+<div></div>
+<p><h1>About this article</h1></p>
+<div></div>
+<p ><b>Subjectivity:</b> {{ subjectivity }}</p>
 <!--<div ><img style="width:50%;"src="/plot_subj.png" alt="my plot"></div>-->
-<div ><img style="width:50%;"src="data:image/png;base64,{{ subj }}" alt="my plot"></div>
+<div style="padding:0;"><img style="width:50%;"src="data:image/png;base64,{{ subj }}" alt="my plot"></div>
 
-<b>Sentiment: </b>{{ sentiment_score }} 
-<div ><img style="width:50%;"src="data:image/png;base64,{{ sent }}" alt="my plot"></div><div></div>
+<p ><b>Sentiment: </b>{{ sentiment_score }} </p>
+<div style="padding:0;"><img style="width:50%;"src="data:image/png;base64,{{ sent }}" alt="my plot"></div><div></div>
 <!--<div ><img style="width:50%;"src="/plot_sent.png" alt="my plot"></div>-->
 <div><img style="width:50%;"src="data:image/png;base64,{{ scatter }}" alt="my plot"></div>
 <hr>
    Topic id: {{topic_id}}
    <p><b>Related articles from more objective sources</b></p>
    {% for article in articles %}
-        <div><p><a href="{{article.url}}">{{ article.title }}</a>
-        	<br>Sentiment Score: {{article.comp}}, Subjectivity Score: {{article.subjectivity_content}}
-        </p></div>
+        <p><a href="{{article.url}}">{{ article.title }}</a>
+        	<br>Sentiment Score: {{'%0.3f'| format(article.comp|float)}}, Subjectivity Score: {{'%0.3f'| format(article.subjectivity_content|float)}}
+        </p>
         {% endfor %}
-<!--{% endblock %}-->
-</body></html>
+{% endblock %}
